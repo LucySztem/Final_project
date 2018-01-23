@@ -50,10 +50,5 @@ public class Event {
         this.date = date;
     }
 
-    public Event(long id, String description, String place, String date) {
-        this.id = id;
-        this.description = description;
-        this.place = place;
-        this.date = date;
-    }
+
 }

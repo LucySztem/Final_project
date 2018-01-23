@@ -26,11 +26,7 @@ public class EventController {
         return "{hello: World}";
     }
 
-//    @RequestMapping("/helloEvent")
-//    public Event showEvent(){
-//
-//        return new Event(1L, "domowka", "u Asi", "2017-03-25");
-//    }
+
 
     @GetMapping("/add")
     private String eventForm(Model model){
@@ -45,5 +41,12 @@ public class EventController {
     return "event has been added";
     }
 
+
+    @GetMapping("/all")
+    private String showAllEvents(Model showAll){
+        List<Event> listOfEvents = eventDao.getAll();
+        showAll.addAttribute("events", listOfEvents);
+        return "all_events";
+    }
 
 }
