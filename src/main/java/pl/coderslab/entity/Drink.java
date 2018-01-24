@@ -1,5 +1,7 @@
 package pl.coderslab.entity;
 
+import pl.coderslab.model.TypeOfDrink;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +13,8 @@ public class Drink {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private TypeOfDrink type;
 
     private String name;
 
@@ -30,11 +33,11 @@ public class Drink {
         this.id = id;
     }
 
-    public String getType() {
+    public TypeOfDrink getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeOfDrink type) {
         this.type = type;
     }
 

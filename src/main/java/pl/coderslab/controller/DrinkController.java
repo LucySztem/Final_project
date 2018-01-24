@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Drink;
+import pl.coderslab.model.TypeOfDrink;
 import pl.coderslab.repository.DrinkDao;
 
 @Controller
@@ -17,6 +18,7 @@ public class DrinkController {
     @GetMapping("/add")
     public String showForm(Model model){
         model.addAttribute("drink", new Drink());
+        model.addAttribute("types", TypeOfDrink.values());
         return "add_drink_form";
     }
 

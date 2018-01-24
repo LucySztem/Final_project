@@ -19,11 +19,14 @@
     <form:form action="/food/add" method="post" modelAttribute="food">
 
 
-        Name<form:input path="name"/><br>
+        Type<form:select path="type">
+        <form:options items="${types}"/>
+        </form:select><br>
+
         Amount<form:input path="amount"/><br>
         Price<form:input path="price"/><br>
 
-        <input type="submit" value = "Add drink">
+        <input type="submit" value = "Add food">
     </form:form>
 </div>
 

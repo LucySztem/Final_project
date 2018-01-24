@@ -2,10 +2,12 @@ package pl.coderslab.repository;
 
 import org.springframework.stereotype.Component;
 import pl.coderslab.entity.Drink;
+import pl.coderslab.model.TypeOfDrink;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -35,13 +37,19 @@ public class DrinkDao {
         return em.find(Drink.class, id);
     }
 
-    /*dodajc ksiazke bedziemy mieli liste wszytskich Drinkow*/
+
     public List<Drink> getAll() {
-        Query query = em.createQuery("SELECT d From Drink d");
+        TypedQuery<Drink> query = em.createQuery("SELECT d From Drink d", Drink.class);
         return query.getResultList();
     }
-    public List<Drink> getTypesOfDrinks(){
-        Query query = em.createQuery("Select d from Drink as d where :type");
+    public List<Drink> getSoftDrinks(){
+        TypedQuery<Drink> query = em.createQuery("Select d from Drink as d where d.type = :typeOfDrink", Drink.class)
+                .setParameter("typeOfDrink", TypeOfDrink.SOFT);
+        return query.getResultList();
+    }
+    public List<Drink> getAlcoholDrinks(){
+        TypedQuery<Drink>  query = em.createQuery("Select d from Drink as d where d.type = :typeOfDrink", Drink.class)
+                .setParameter("typeOfDrink", TypeOfDrink.ALCOHOL);
         return query.getResultList();
     }
 }

@@ -1,6 +1,9 @@
 package pl.coderslab.entity;
 
+import pl.coderslab.model.TypeOfFood;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "foods")
@@ -10,7 +13,8 @@ public class Food {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private TypeOfFood type;
 
     private double price;
 
@@ -18,6 +22,7 @@ public class Food {
 
     public Food() {
     }
+
 
     public long getId() {
         return id;
@@ -27,12 +32,22 @@ public class Food {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+//    public String getType() {
+//        return type;
+//    }
+//
+//    public void setType(String type) {
+//        this.type = type;
+//    }
+
+
+    public TypeOfFood getType() {
+        return type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setType(TypeOfFood type) {
+        this.type = type;
     }
 
     public double getPrice() {
