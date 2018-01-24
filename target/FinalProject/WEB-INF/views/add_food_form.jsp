@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ page isELIgnored = "false" %>
 <html>
 <head>
     <title>Title</title>
@@ -16,11 +19,14 @@
     <form:form action="/food/add" method="post" modelAttribute="food">
 
 
-        Name<form:input path="name"/><br>
+        Type<form:select path="type">
+        <form:options items="${types}"/>
+        </form:select><br>
+
         Amount<form:input path="amount"/><br>
         Price<form:input path="price"/><br>
 
-        <input type="submit" value = "Add drink">
+        <input type="submit" value = "Add food">
     </form:form>
 </div>
 

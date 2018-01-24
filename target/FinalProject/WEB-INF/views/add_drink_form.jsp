@@ -18,7 +18,9 @@
 <%--@elvariable id="drink" type="pl.coderslab.entity.Drink"--%>
 <form:form action="/drink/add" method="post" modelAttribute="drink">
 
-Type: <form:input path="type"/><br>
+Type: <form:select path="type">
+    <form:options items ="${types}"/>
+</form:select>
     Name<form:input path="name"/><br>
     Amount<form:input path="amount"/><br>
     Price<form:input path="price"/><br>
