@@ -49,4 +49,12 @@ public class EventController {
         return "all_events";
     }
 
+    @GetMapping("/{id}")
+
+    public String eventView(Model model, @PathVariable long id){
+        model.addAttribute("event", new Event());
+        return "event_01";
+
+    }
+
 }
