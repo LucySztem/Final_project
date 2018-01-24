@@ -7,6 +7,7 @@
     <p><a href="/event/all">Show all parties</a></p>
     <p><a href="/drink/add">Add drink to DB</a></p>
     <p><a href="/food/add">Add food to DB</a></p>
+    <p><a href="/user/add">Add new user</a></p>
 </div>
 </body>
 </html>
