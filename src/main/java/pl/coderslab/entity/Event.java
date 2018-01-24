@@ -1,5 +1,7 @@
 package pl.coderslab.entity;
 
+import pl.coderslab.converter.UserConverter;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,11 @@ public class Event {
     private String description;
     private String place;
     private String date;
+
+//    @ManyToOne
+//    @Convert(converter = UserConverter.class)
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     public Event() {
     }
@@ -50,5 +57,11 @@ public class Event {
         this.date = date;
     }
 
-
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }

@@ -13,6 +13,9 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.coderslab.converter.EventConverter;
+import pl.coderslab.converter.UserConverter;
+import pl.coderslab.entity.Event;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
@@ -57,6 +60,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public Validator validator()	{
         return	new LocalValidatorFactoryBean();
+    }
+
+    @Bean
+    public UserConverter getUserConverter() {
+        return new UserConverter();
+    }
+    @Bean
+    public EventConverter getEventConverter() {
+        return new EventConverter();
     }
 
 }

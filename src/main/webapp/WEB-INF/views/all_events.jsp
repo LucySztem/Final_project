@@ -32,7 +32,7 @@
 <body>
 <div class="container">
 <table class="table table-striped">
-    <thead class="thead-dark">
+    <thead class="thead thead-dark">
     <tr>
         <td>Id</td>
         <td>What</td>

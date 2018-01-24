@@ -3,6 +3,8 @@ package pl.coderslab.entity;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +20,18 @@ public class User {
     private String email;
 
     private String password;
+
+    @OneToMany( cascade = CascadeType.ALL)
+    @JoinColumn(name="event_id")
+    private List<Event> events = new ArrayList<>();
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
 
     public User() {
     }

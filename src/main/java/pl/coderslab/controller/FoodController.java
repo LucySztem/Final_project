@@ -29,7 +29,7 @@ public class FoodController {
     @PostMapping("/add")
     private String addFood(@ModelAttribute Food food){
         foodDao.save(food);
-        return "redirect:index";
+        return "redirect:add";
     }
 // to jest model attribute globalny dla claego kontrolera wiec mozna go uzyc w wielu miejscach
 //    @ModelAttribute("types")
