@@ -23,7 +23,7 @@ public class FoodController {
 
         model.addAttribute("food", new Food());
         model.addAttribute("types", TypeOfFood.values());
-        return "add_food_form";
+        return "addForms/add_food_form";
     }
 
     @PostMapping("/add")

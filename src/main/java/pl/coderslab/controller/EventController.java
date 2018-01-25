@@ -62,16 +62,19 @@ public class EventController {
     public String eventView(Model model, @PathVariable long id){
         Event eventByID = eventDao.findById(id);
         model.addAttribute("event", eventByID);
-        model.addAttribute("food", new Food());
-        model.addAttribute("drink", new Drink());
-        model.addAttribute("types", TypeOfDrink.values());
-        model.addAttribute("types", TypeOfFood.values());
+
+        Food food = new Food();
+        food.setEvent(eventByID);
+        model.addAttribute("food", food);
+
+        Drink drink = new Drink();
+        drink.setEvent(eventByID);
+        model.addAttribute("drink", drink);
+
+        model.addAttribute("typesOfFood", TypeOfDrink.values());
+        model.addAttribute("typesOfDrinks", TypeOfFood.values());
         return "event_01";
 
     }
-//    @ModelAttribute("user")
-//    public User addUser(@RequestParam long id){
-//        User user = userDao.findById(id);
-//        return user;
-//    }
+
 }

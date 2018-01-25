@@ -17,6 +17,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+    #first{
+        width: 600px;
+        float:left;
+        border: 1px;
+    }
+    #second{
+        border: 2px;
+        overflow: hidden;
+    }
+</style>
 <body>
 <table class="table table-striped">
     <thead>
@@ -36,14 +47,13 @@
     </tr>
     </tbody>
 </table>
-<div class="container">
-    <div style="float:left">
-    <h2>Add yummy stuff</h2>
-<jsp:include page="add_food_form.jsp"/>
+
+    <div id="first">
+<jsp:include page="addForms/add_food_form.jsp"/>
 </div>
-<div style="float: right; margin-left: 10px;">
-    <jsp:include page="add_drink_form.jsp"/>
+<div id="second">
+    <jsp:include page="addForms/add_drink_form.jsp"/>
 </div>
-</div>
+
 </body>
 </html>

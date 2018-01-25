@@ -1,27 +1,28 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ page isELIgnored = "false" %>
 <%--
   Created by IntelliJ IDEA.
   User: lucy
   Date: 23.01.18
-  Time: 16:44
+  Time: 16:54
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored="false" %>
+
 <html>
 <head>
-    <title>Add drink form</title>
+    <title>Add food form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <h1 style ="color:darkmagenta">How much we drank...</h1>
-    <%--@elvariable id="drink" type="pl.coderslab.entity.Drink"--%>
-    <form:form action="/drink/add" method="post" modelAttribute="drink" class="form-horizontal">
-
+<div class = "container">
+    <h1 style="color:darkmagenta" align="left">Food</h1>
+    <%--@elvariable id="food" type="pl.coderslab.entity.Food"--%>
+    <form:form action="/food/add" method="post" modelAttribute="food" class="form-horizontal">
+        <form:hidden path="event.id"/>
         <div class="form-group">
             <label class="control-label col-sm-2" for="type">Type:</label>
             <div class="col-sm-4">
@@ -32,28 +33,25 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="name">Name:</label>
-            <div class="col-sm-4">
-                <form:input path="name" class="form-control" placeholder="Enter name"/>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label col-sm-2" for="amount">Amount:</label>
             <div class="col-sm-4">
-                <form:input path="amount" class="form-control" placeholder="How much"/>
+                <form:input path="amount" class="form-control" placeholder="Enter amount"/>
             </div>
         </div>
+
         <div class="form-group">
-            <label class="control-label col-sm-2" for="price">Price:</label>
+            <label class="control-label col-sm-2" for="price">Total price</label>
             <div class="col-sm-4">
                 <form:input path="price" class="form-control" placeholder="Enter total price"/>
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Add food</button>
             </div>
         </div>
+
     </form:form>
 </div>
 </body>

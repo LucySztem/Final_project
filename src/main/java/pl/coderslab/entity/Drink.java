@@ -22,7 +22,20 @@ public class Drink {
 
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
     public Drink() {
+
     }
 
     public long getId() {

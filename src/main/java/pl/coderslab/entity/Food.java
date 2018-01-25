@@ -20,6 +20,18 @@ public class Food {
 
     private double amount;
 
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
     public Food() {
     }
 

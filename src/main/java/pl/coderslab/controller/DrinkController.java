@@ -25,6 +25,7 @@ public class DrinkController {
     @PostMapping("/add")
     @ResponseBody
     public String addDrink(@ModelAttribute Drink drink){
+
         drinkDao.save(drink);
         return "drink has been added";
     }
