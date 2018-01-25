@@ -42,14 +42,27 @@ public class DrinkDao {
         TypedQuery<Drink> query = em.createQuery("SELECT d From Drink d", Drink.class);
         return query.getResultList();
     }
-    public List<Drink> getSoftDrinks(){
+
+    public List<Drink> getSoftDrinks() {
         TypedQuery<Drink> query = em.createQuery("Select d from Drink as d where d.type = :typeOfDrink", Drink.class)
                 .setParameter("typeOfDrink", TypeOfDrink.SOFT);
         return query.getResultList();
     }
-    public List<Drink> getAlcoholDrinks(){
-        TypedQuery<Drink>  query = em.createQuery("Select d from Drink as d where d.type = :typeOfDrink", Drink.class)
+
+    public List<Drink> getAlcoholDrinks() {
+        TypedQuery<Drink> query = em.createQuery("Select d from Drink as d where d.type = :typeOfDrink", Drink.class)
                 .setParameter("typeOfDrink", TypeOfDrink.ALCOHOL);
         return query.getResultList();
+    }
+
+    public List<Drink> getDrinksByEventId(long id) {
+        TypedQuery<Drink> query = em.createQuery("Select d from Drink as d where d.event.id= :id", Drink.class)
+                .setParameter("id", id);
+        return query.getResultList();
+    }
+
+    public double getSum(){
+        Query query = em.createQuery("select sum(price) from Drink");
+        return query.getFirstResult();
     }
 }

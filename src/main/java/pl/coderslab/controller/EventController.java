@@ -13,6 +13,7 @@ import pl.coderslab.entity.Food;
 import pl.coderslab.entity.User;
 import pl.coderslab.model.TypeOfDrink;
 import pl.coderslab.model.TypeOfFood;
+import pl.coderslab.repository.DrinkDao;
 import pl.coderslab.repository.EventDao;
 import pl.coderslab.repository.UserDao;
 
@@ -23,6 +24,8 @@ import java.util.List;
 public class EventController {
 
 
+    @Autowired
+    private DrinkDao drinkDao;
 
     @Autowired
     private EventDao eventDao;
@@ -40,7 +43,7 @@ public class EventController {
     @GetMapping("/add")
     private String eventForm(Model model){
         model.addAttribute("event", new Event());
-        return "add_event_form";
+        return "addForms/add_event_form";
     }
 
     @PostMapping("/add")
@@ -63,16 +66,21 @@ public class EventController {
         Event eventByID = eventDao.findById(id);
         model.addAttribute("event", eventByID);
 
+        List<Drink> listOfDrinks = drinkDao.getDrinksByEventId(id);
+        model.addAttribute("drinks", listOfDrinks);
+
         Food food = new Food();
         food.setEvent(eventByID);
         model.addAttribute("food", food);
+        model.addAttribute("typesOfDrinks", TypeOfFood.values());
 
         Drink drink = new Drink();
         drink.setEvent(eventByID);
         model.addAttribute("drink", drink);
-
         model.addAttribute("typesOfFood", TypeOfDrink.values());
-        model.addAttribute("typesOfDrinks", TypeOfFood.values());
+
+        double sum = drinkDao.getSum();
+        model.addAttribute("sum", sum);
         return "event_01";
 
     }

@@ -18,6 +18,7 @@ public class Event {
     private String description;
     private String place;
     private String date;
+    private int people;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Food> listOfFood = new ArrayList<>();
@@ -34,6 +35,14 @@ public class Event {
     }
 
     public Event() {
+    }
+
+    public int getPeople() {
+        return people;
+    }
+
+    public void setPeople(int people) {
+        this.people = people;
     }
 
     public long getId() {
