@@ -44,4 +44,9 @@ public class UserDao {
         TypedQuery<User> query = em.createQuery("SELECT e From User as e", User.class);
         return query.getResultList();
     }
+    public User findByUsername(String username){
+        TypedQuery<User> query = em.createQuery("Select u from User as u where u.username = :username", User.class)
+        .setParameter("username", username);
+        return query.getSingleResult();
+    }
 }

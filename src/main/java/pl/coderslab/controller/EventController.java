@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import pl.coderslab.repository.DrinkDao;
 import pl.coderslab.repository.EventDao;
 import pl.coderslab.repository.FoodDao;
 import pl.coderslab.repository.UserDao;
+import pl.coderslab.security.UserPrincipal;
 
 import java.util.List;
 
@@ -50,10 +52,17 @@ public class EventController {
     }
 
     @PostMapping("/add")
-    @ResponseBody
-    private String addEvent(@ModelAttribute Event event){
-        eventDao.save(event);
-    return "event has been added";
+
+    private String addEvent(@ModelAttribute Event event, @AuthenticationPrincipal UserPrincipal principal) {
+        if (principal == null) {
+            return "redirect:/user/login";
+        } else {
+//            User user = userDao.findById(principal.getUserId());
+//            eventDao.setOwner(user);
+            eventDao.save(event);
+            return "redirect:all";
+           // return principal.getUsername() + " " + principal.getUserId();
+        }
     }
 
 

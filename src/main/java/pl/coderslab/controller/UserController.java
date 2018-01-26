@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,18 +13,27 @@ import pl.coderslab.repository.UserDao;
 public class UserController {
 
     @Autowired
+    private PasswordEncoder encoder;
+
+    @Autowired
     private UserDao userDao;
 
     @GetMapping("/add")
     public String sendForm(Model model){
         model.addAttribute("user", new User());
-        return "add_user_form";
+        return "addForms/add_user_form";
     }
 
     @PostMapping("/add")
     @ResponseBody
-    private String addNewUser(@ModelAttribute User user){
-       userDao.save(user);
+    public String addNewUser(@ModelAttribute User user){
+        user.setPassword(encoder.encode(user.getPassword()));
+        userDao.save(user);
        return "new user has been added";
+    }
+
+    @GetMapping("/login")
+    public String logIn(){
+        return "login_form";
     }
 }

@@ -29,7 +29,7 @@ public class DrinkController {
     public String addDrink(@ModelAttribute Drink drink){
 
         drinkDao.save(drink);
-        return "redirect:/event/all";
+        return "redirect:/event/" + drink.getEvent().getId();
     }
 
 }

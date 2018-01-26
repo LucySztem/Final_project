@@ -20,23 +20,24 @@
 <body>
 <div class="container">
 
-    <form:form action="/drink/add" method="post" modelAttribute="" class="form-horizontal">
+    <form action="/user/login" method="post" class="form-horizontal">
 
-    <div class="form-group">
-    <label class="control-label col-sm-2" for="username">Username:</label>
-        <div class="col-sm-4">
-            <form:input path="username" class="form-control" />
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="username">Username:</label>
+            <div class="col-sm-4">
+                <input name="username" id="username" class="form-control"/>
+            </div>
         </div>
-    </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="password">Password:</label>
             <div class="col-sm-4">
-                <form:password path="password" class="form-control" />
+                <input type="password" id="password" name="password" class="form-control"/>
             </div>
         </div>
 
-    </form:form>
+        <input type="submit" value="send">
+    </form>
 </div>
 
 </body>

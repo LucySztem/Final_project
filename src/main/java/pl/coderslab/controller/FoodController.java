@@ -30,7 +30,7 @@ public class FoodController {
     private String addFood(@ModelAttribute Food food){
 
         foodDao.save(food);
-        return "redirect:/event/all";
+        return "redirect:/event/" + food.getEvent().getId();
     }
 // to jest model attribute globalny dla claego kontrolera wiec mozna go uzyc w wielu miejscach
 //    @ModelAttribute("types")
