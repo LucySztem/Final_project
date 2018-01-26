@@ -1,6 +1,7 @@
 package pl.coderslab.repository;
 
 import org.springframework.stereotype.Component;
+import pl.coderslab.entity.Drink;
 import pl.coderslab.entity.Event;
 import pl.coderslab.entity.Food;
 import pl.coderslab.model.TypeOfFood;
@@ -58,5 +59,9 @@ public class FoodDao {
                 .setParameter("typeOfFood", TypeOfFood.HOT_FOOD);
         return query.getResultList();
     }
-
+   public List<Food> getFoodByEventId(long id){
+       TypedQuery<Food> query = em.createQuery("Select f from Food as f where f.event.id= :id", Food.class)
+               .setParameter("id", id);
+       return query.getResultList();
+   }
 }

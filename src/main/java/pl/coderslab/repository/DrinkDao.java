@@ -61,8 +61,5 @@ public class DrinkDao {
         return query.getResultList();
     }
 
-    public double getSum(){
-        Query query = em.createQuery("select sum(price) from Drink");
-        return query.getFirstResult();
-    }
+
 }

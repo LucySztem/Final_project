@@ -47,6 +47,13 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-sm-2" for="person">Who is bringing it</label>
+            <div class="col-sm-4">
+                <form:input path="person" class="form-control" placeholder="Enter your name"/>
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Add food</button>
             </div>

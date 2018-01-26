@@ -15,6 +15,7 @@ import pl.coderslab.model.TypeOfDrink;
 import pl.coderslab.model.TypeOfFood;
 import pl.coderslab.repository.DrinkDao;
 import pl.coderslab.repository.EventDao;
+import pl.coderslab.repository.FoodDao;
 import pl.coderslab.repository.UserDao;
 
 import java.util.List;
@@ -23,6 +24,8 @@ import java.util.List;
 @RequestMapping("/event")
 public class EventController {
 
+    @Autowired
+    private FoodDao foodDao;
 
     @Autowired
     private DrinkDao drinkDao;
@@ -69,6 +72,9 @@ public class EventController {
         List<Drink> listOfDrinks = drinkDao.getDrinksByEventId(id);
         model.addAttribute("drinks", listOfDrinks);
 
+        List<Food> listOfFood = foodDao.getFoodByEventId(id);
+        model.addAttribute("foods", listOfFood);
+
         Food food = new Food();
         food.setEvent(eventByID);
         model.addAttribute("food", food);
@@ -79,10 +85,8 @@ public class EventController {
         model.addAttribute("drink", drink);
         model.addAttribute("typesOfFood", TypeOfDrink.values());
 
-        double sum = drinkDao.getSum();
-        model.addAttribute("sum", sum);
-        return "event_01";
 
+        return "show_event";
     }
 
 }

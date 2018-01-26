@@ -1,0 +1,19 @@
+#first {
+    width: 600px;
+    float: left;
+    border: 1px;
+}
+
+#second {
+    border: 2px;
+    overflow: hidden;
+}
+#partyDrinks{
+
+    width:1000px;
+    border: 10px;
+}
+#partyFood {
+    width:1000px;
+    border: 10px;
+}

@@ -3,7 +3,6 @@ package pl.coderslab.entity;
 import pl.coderslab.model.TypeOfDrink;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "drinks")
@@ -22,6 +21,9 @@ public class Drink {
 
     private double price;
 
+    private String person;
+
+
     @ManyToOne
     @JoinColumn(name = "event_id")
     private Event event;
@@ -36,6 +38,14 @@ public class Drink {
 
     public Drink() {
 
+    }
+
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
     }
 
     public long getId() {

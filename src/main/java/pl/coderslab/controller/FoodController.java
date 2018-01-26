@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/food")
+//@RequestMapping("/food")
 public class FoodController {
 
     @Autowired
     private FoodDao foodDao;
 
-    @GetMapping("/add")
+    @GetMapping("/food/add")
     private String showFrom(Model model){
 
         model.addAttribute("food", new Food());
@@ -26,10 +26,11 @@ public class FoodController {
         return "addForms/add_food_form";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/food/add")
     private String addFood(@ModelAttribute Food food){
+
         foodDao.save(food);
-        return "redirect:add";
+        return "redirect:/event/all";
     }
 // to jest model attribute globalny dla claego kontrolera wiec mozna go uzyc w wielu miejscach
 //    @ModelAttribute("types")

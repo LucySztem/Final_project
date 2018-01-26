@@ -24,6 +24,16 @@ public class Food {
     @JoinColumn(name = "event_id")
     private Event event;
 
+    private String person;
+
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
+    }
+
     public Event getEvent() {
         return event;
     }

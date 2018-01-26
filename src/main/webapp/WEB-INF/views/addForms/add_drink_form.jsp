@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 style ="color:darkmagenta" align ="left">Drinks</h1>
+    <h1 style ="color:darkmagenta">Drinks</h1>
     <%--@elvariable id="drink" type="pl.coderslab.entity.Drink"--%>
     <form:form action="/drink/add" method="post" modelAttribute="drink" class="form-horizontal">
         <form:hidden path="event.id"/>
@@ -50,6 +50,14 @@
                 <form:input path="price" class="form-control" placeholder="Enter total price"/>
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="person">Who is bringing it</label>
+            <div class="col-sm-4">
+                <form:input path="person" class="form-control" placeholder="Enter your name"/>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Add drinks</button>
