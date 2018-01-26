@@ -49,7 +49,7 @@
     <jsp:include page="addForms/add_food_form.jsp"/>
 </div>
 <div id="second">
-    <jsp:include page="addForms/add_drink_form.jsp"/>
+    <jsp:include page="drink/add_drink_form.jsp"/>
 </div>
 
 <div id="partyDrinks">
@@ -60,6 +60,7 @@
             <td>Amount</td>
             <td>Price</td>
             <td>Who is brining it</td>
+            <td>Action</td>
 
         </tr>
         <c:set var="total" value="${0.0}"/>
@@ -69,6 +70,7 @@
                 <td>${drink.amount}</td>
                 <td>${drink.price}</td>
                 <td>${drink.person}</td>
+                <td><a href="/drink/update/${drink.id}">Update</a> || <a href="/drink/delete/${drink.id}/${event.id}">Delete</a></td>
             </tr>
         </c:forEach>
         <c:set var="total" value="${0.0}"/>
@@ -91,6 +93,7 @@
             <td>Amount</td>
             <td>Total price</td>
             <td>Who is brining it</td>
+            <td>Action</td>
         </tr>
         <c:forEach items="${foods}" var ="food">
         <tr>
@@ -98,6 +101,7 @@
             <td>${food.amount}</td>
             <td>${food.price}</td>
             <td>${food.person}</td>
+            <td><a href="/food/update/${food.id}">Update</a> || <a href="/food/delete/${food.id}">Delete</a></td>
         </tr>
         </c:forEach>
         <c:set var="total" value="${0.0}"/>

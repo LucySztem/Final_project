@@ -21,7 +21,7 @@ public class DrinkController {
     public String showForm(Model model){
         model.addAttribute("drink", new Drink());
         model.addAttribute("types", TypeOfDrink.values());
-        return "add_drink_form";
+        return "drink/add_drink_form";
     }
 
     @PostMapping("/drink/add")
@@ -34,7 +34,18 @@ public class DrinkController {
     @GetMapping("/drink/update/{id}")
     public String updateDrinkForm(Model model, @PathVariable long id){
         Drink drink = drinkDao.findById(id);
-        return "redirect:/event/" + drink.getEvent().getId();
+        model.addAttribute("drink", drink);
+        return "drink/update_drink_form";
     }
 
+    @PostMapping("/drink/update")
+    public String updateDrink(@ModelAttribute Drink drink){
+        drinkDao.update(drink);
+        return "redirect:/event/" + drink.getEvent().getId();
+    }
+    @GetMapping("/drink/delete/{drinkId}/{eventId}")
+    public String deleteDrink(@PathVariable long drinkId, @PathVariable long eventId){
+        drinkDao.delete(drinkId);
+        return "redirect:/event/" + eventId;
+    }
 }
