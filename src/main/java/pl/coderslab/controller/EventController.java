@@ -48,7 +48,7 @@ public class EventController {
     @GetMapping("/add")
     private String eventForm(Model model){
         model.addAttribute("event", new Event());
-        return "addForms/add_event_form";
+        return "event/add_event_form";
     }
 
     @PostMapping("/add")
@@ -98,4 +98,15 @@ public class EventController {
         return "show_event";
     }
 
+    @GetMapping("/update/{id}")
+    public String updateEventForm(Model model, @PathVariable long id){
+        Event event = eventDao.findById(id);
+        model.addAttribute("event", event);
+        return "event/update_event_form";
+    }
+    @PostMapping("/update")
+    public String updateEvent(@ModelAttribute Event event){
+        eventDao.update(event);
+       return "redirect:/event/" + event.getId();
+    }
 }

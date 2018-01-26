@@ -31,5 +31,10 @@ public class DrinkController {
         drinkDao.save(drink);
         return "redirect:/event/" + drink.getEvent().getId();
     }
+    @GetMapping("/drink/update/{id}")
+    public String updateDrinkForm(Model model, @PathVariable long id){
+        Drink drink = drinkDao.findById(id);
+        return "redirect:/event/" + drink.getEvent().getId();
+    }
 
 }

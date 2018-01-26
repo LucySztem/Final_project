@@ -28,6 +28,7 @@
         <td> Place</td>
         <td>Date</td>
         <td>People</td>
+        <td>Update</td>
     </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@
         <td>${event.place}</td>
         <td>${event.date}</td>
         <td>${event.people}</td>
+        <td><a href="/event/update/${event.id}">Change information</a></td>
     </tr>
 
     </tbody>
