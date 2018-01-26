@@ -20,6 +20,7 @@
 </head>
 
 <body>
+<h3><a href="/event/all">Go back</a></h3><br>
 <table class="table table-striped">
     <thead>
     <tr>

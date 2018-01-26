@@ -51,7 +51,9 @@
     </c:forEach>
     </tbody>
 </table>
+
 </div>
+<h3 class="text-center"><a href="/">Go back</a></h3>
 </body>
 
 </html>

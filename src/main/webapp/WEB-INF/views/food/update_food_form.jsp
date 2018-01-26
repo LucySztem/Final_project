@@ -21,7 +21,7 @@
 <div class = "container">
     <h1 style="color:darkmagenta" align="left">Food</h1>
     <%--@elvariable id="food" type="pl.coderslab.entity.Food"--%>
-    <form:form action="/food/add" method="post" modelAttribute="food" class="form-horizontal">
+    <form:form action="/food/update" method="post" modelAttribute="food" class="form-horizontal">
         <form:hidden path="event.id"/>
         <form:hidden path="id"/>
         <div class="form-group">

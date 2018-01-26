@@ -48,19 +48,19 @@ public class FoodController {
     }
 
     @GetMapping("/food/update/{id}")
-    public String updateDrinkForm(Model model, @PathVariable long id){
+    public String updateFoodForm(Model model, @PathVariable long id){
         Food food= foodDao.findById(id);
         model.addAttribute("food", food);
         return "food/update_food_form";
     }
 
     @PostMapping("/food/update")
-    public String updateDrink(@ModelAttribute Food food){
+    public String updateFood(@ModelAttribute Food food){
         foodDao.update(food);
         return "redirect:/event/" + food.getEvent().getId();
     }
     @GetMapping("/food/delete/{foodId}/{eventId}")
-    public String deleteDrink(@PathVariable long foodId, @PathVariable long eventId){
+    public String deleteFood(@PathVariable long foodId, @PathVariable long eventId){
         foodDao.delete(foodId);
         return "redirect:/event/" + eventId;
     }
