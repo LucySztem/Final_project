@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import pl.coderslab.entity.Food;
 import pl.coderslab.model.TypeOfFood;
 import pl.coderslab.repository.FoodDao;
@@ -23,7 +24,7 @@ public class FoodController {
 
         model.addAttribute("food", new Food());
         model.addAttribute("types", TypeOfFood.values());
-        return "addForms/add_food_form";
+        return "food/add_food_form";
     }
 
     @PostMapping("/food/add")
@@ -44,5 +45,23 @@ public class FoodController {
     public List<Food> getAll(){
         List<Food> list = foodDao.getSnacks();
         return list;
+    }
+
+    @GetMapping("/food/update/{id}")
+    public String updateDrinkForm(Model model, @PathVariable long id){
+        Food food= foodDao.findById(id);
+        model.addAttribute("food", food);
+        return "food/update_food_form";
+    }
+
+    @PostMapping("/food/update")
+    public String updateDrink(@ModelAttribute Food food){
+        foodDao.update(food);
+        return "redirect:/event/" + food.getEvent().getId();
+    }
+    @GetMapping("/food/delete/{foodId}/{eventId}")
+    public String deleteDrink(@PathVariable long foodId, @PathVariable long eventId){
+        foodDao.delete(foodId);
+        return "redirect:/event/" + eventId;
     }
 }

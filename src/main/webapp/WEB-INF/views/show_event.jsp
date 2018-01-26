@@ -46,7 +46,7 @@
 
 
 <div id="first">
-    <jsp:include page="addForms/add_food_form.jsp"/>
+    <jsp:include page="food/add_food_form.jsp"/>
 </div>
 <div id="second">
     <jsp:include page="drink/add_drink_form.jsp"/>
@@ -101,7 +101,7 @@
             <td>${food.amount}</td>
             <td>${food.price}</td>
             <td>${food.person}</td>
-            <td><a href="/food/update/${food.id}">Update</a> || <a href="/food/delete/${food.id}">Delete</a></td>
+            <td><a href="/food/update/${food.id}">Update</a> || <a href="/food/delete/${food.id}/${event.id}">Delete</a></td>
         </tr>
         </c:forEach>
         <c:set var="total" value="${0.0}"/>
