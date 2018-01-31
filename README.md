@@ -15,4 +15,4 @@ Further implementations:
 - upload photos;
 - a page with statistics from the parties so everyone have access to data needed in creating a budget.
 
-Technologies used: Spring, Hibernate, MySQL, Spring Security, HTML, CSS
+Technologies used: Spring, Hibernate, MySQL, Spring Security, HTML, CSS, Servlets, JSP
