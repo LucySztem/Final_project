@@ -90,7 +90,7 @@
     <h2>Food Summary</h2>
     <table class="table table-striped">
         <tr>
-            <td>Type</td>
+            <td>Name</td>
             <td>Amount</td>
             <td>Total price</td>
             <td>Who is brining it</td>
@@ -98,7 +98,7 @@
         </tr>
         <c:forEach items="${foods}" var ="food">
         <tr>
-            <td>${food.type}</td>
+            <td>${food.name}</td>
             <td>${food.amount}</td>
             <td>${food.price}</td>
             <td>${food.person}</td>

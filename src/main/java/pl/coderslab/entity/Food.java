@@ -16,6 +16,8 @@ public class Food {
     @Enumerated(EnumType.STRING)
     private TypeOfFood type;
 
+    private String name;
+
     private double price;
 
     private double amount;
@@ -25,6 +27,9 @@ public class Food {
     private Event event;
 
     private String person;
+
+    public Food() {
+    }
 
     public String getPerson() {
         return person;
@@ -42,9 +47,13 @@ public class Food {
         this.event = event;
     }
 
-    public Food() {
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public long getId() {
         return id;

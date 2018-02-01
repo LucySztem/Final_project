@@ -33,6 +33,13 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-4">
+                <form:input path="name" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="control-label col-sm-2" for="amount">Amount:</label>
             <div class="col-sm-4">
                 <form:input path="amount" class="form-control" placeholder="Enter amount"/>
