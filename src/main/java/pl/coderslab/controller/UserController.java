@@ -21,15 +21,15 @@ public class UserController {
     @GetMapping("/add")
     public String sendForm(Model model){
         model.addAttribute("user", new User());
-        return "addForms/add_user_form";
+        return "user/add_user_form";
     }
 
     @PostMapping("/add")
-    @ResponseBody
+    //@ResponseBody
     public String addNewUser(@ModelAttribute User user){
         user.setPassword(encoder.encode(user.getPassword()));
         userDao.save(user);
-       return "new user has been added";
+       return "/";
     }
 
     @GetMapping("/login")

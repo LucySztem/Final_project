@@ -67,10 +67,15 @@ public class EventController {
 
 
     @GetMapping("/all")
-    private String showAllEvents(Model showAll){
-        List<Event> listOfEvents = eventDao.getAll();
-        showAll.addAttribute("events", listOfEvents);
-        return "all_events";
+    private String showAllEvents(@AuthenticationPrincipal UserPrincipal principal, Model showAll){
+
+        if (principal == null) {
+            return "redirect:/user/login";
+        } else {
+            List<Event> listOfEvents = eventDao.getAll();
+            showAll.addAttribute("events", listOfEvents);
+            return "all_events";
+        }
     }
 
     @GetMapping("/{id}")
