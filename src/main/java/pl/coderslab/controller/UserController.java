@@ -1,12 +1,16 @@
 package pl.coderslab.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserDao;
+import pl.coderslab.security.UserPrincipal;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -35,5 +39,16 @@ public class UserController {
     @GetMapping("/login")
     public String logIn(){
         return "login_form";
+    }
+
+    @PostMapping("/login")
+    private String showAllEvents(@AuthenticationPrincipal UserPrincipal principal){
+
+        if (principal == null) {
+            return "redirect:/user/login";
+        } else {
+
+            return "redirect:event/all";
+        }
     }
 }

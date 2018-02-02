@@ -35,8 +35,11 @@
                 <input type="password" id="password" name="password" class="form-control"/>
             </div>
         </div>
-
-        <input type="submit" value="send">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Log in</button>
+            </div>
+        </div>
     </form>
 </div>
 
