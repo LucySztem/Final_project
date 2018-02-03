@@ -43,12 +43,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/event").authenticated()
 //                .antMatchers("/admin").hasRole("ADMIN")
 //                .anyRequest().authenticated()
-                .antMatchers("event/all").authenticated()
+//                .antMatchers("event/all").authenticated()
                 .anyRequest().permitAll()
                 .and().formLogin().permitAll()
                 .and().csrf().disable();
         ;
-//        http.formLogin().defaultSuccessUrl("/views/index.html", true);
+        http.formLogin().defaultSuccessUrl("/home", true);
         http.formLogin().loginPage("/user/login");
     }
 

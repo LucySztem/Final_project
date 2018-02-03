@@ -11,7 +11,7 @@
 
 <div id="container" align="center">
     <%--<h3 align="center"><a href="/event/add">Add new party</a></h3>--%>
-    <%--<h3 align="center"><a href="/event/all">Show all parties</a></h3>--%>
+    <h3 align="center"><a href="/event/all">Show all parties</a></h3>
 
     <h3 align="center"><a href="/user/add">Register</a></h3>
     <%--<h3 align="center"><a href="/user/login">Log in</a></h3>--%>
