@@ -10,8 +10,6 @@ import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserDao;
 import pl.coderslab.security.UserPrincipal;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -23,26 +21,26 @@ public class UserController {
     private UserDao userDao;
 
     @GetMapping("/add")
-    public String sendForm(Model model){
+    public String sendForm(Model model) {
         model.addAttribute("user", new User());
         return "user/add_user_form";
     }
 
     @PostMapping("/add")
     //@ResponseBody
-    public String addNewUser(@ModelAttribute User user){
+    public String addNewUser(@ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userDao.save(user);
-       return "/";
+        return "/";
     }
 
     @GetMapping("/login")
-    public String logIn(){
+    public String logIn() {
         return "login_form";
     }
 
     @PostMapping("/login")
-    private String showAllEvents(@AuthenticationPrincipal UserPrincipal principal){
+    public String showAllEvents(@AuthenticationPrincipal UserPrincipal principal) {
 
         if (principal == null) {
             return "redirect:/user/login";
@@ -50,5 +48,13 @@ public class UserController {
 
             return "redirect:/home";
         }
+    }
+
+    @GetMapping("/account")
+    public String showUserAccount(@AuthenticationPrincipal UserPrincipal principal, Model model) {
+
+        User user = userDao.findById(principal.getUserId());
+        model.addAttribute("user", user);
+        return "user/user_account";
     }
 }
