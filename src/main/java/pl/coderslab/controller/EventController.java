@@ -7,11 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import pl.coderslab.entity.Drink;
-import pl.coderslab.entity.Event;
+import pl.coderslab.entity.*;
 
-import pl.coderslab.entity.Food;
-import pl.coderslab.entity.User;
 import pl.coderslab.model.TypeOfDrink;
 import pl.coderslab.model.TypeOfFood;
 import pl.coderslab.repository.DrinkDao;
@@ -76,6 +73,7 @@ public class EventController {
         } else {
             List<Event> listOfEvents = eventDao.getAll();
             showAll.addAttribute("events", listOfEvents);
+            showAll.addAttribute("comment", new Comment());
             return "all_events";
         }
     }

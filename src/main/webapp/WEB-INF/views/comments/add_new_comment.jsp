@@ -21,7 +21,8 @@
 <div class="container">
 <%--@elvariable id="comment" type="pl.coderslab.entity.Comment"--%>
 <form:form action="/comment/add" method="post" modelAttribute="comment" >
-   Enter text<form:textarea path="text"/>
+    <h3>Enter text</h3>
+    <form:textarea path="text" />
     <input type="submit" value="send">
 </form:form>
 </div>
