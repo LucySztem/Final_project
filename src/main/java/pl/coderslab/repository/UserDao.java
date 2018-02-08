@@ -49,4 +49,5 @@ public class UserDao {
         .setParameter("username", username);
         return query.getSingleResult();
     }
+
 }

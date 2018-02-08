@@ -12,7 +12,7 @@
 
 <html>
 <head>
-    <title>Event 01</title>
+    <title>Event</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/show_event.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<h3><a href="/event/all">Go back</a></h3><br>
+<h3 align="center" ><a href="/event/all">Go back</a> || <a href="/event/delete/${event.id}">Delete event</a></h3><br>
 <table class="table table-striped">
     <thead>
     <tr>

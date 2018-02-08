@@ -26,6 +26,7 @@ public class Food {
     @JoinColumn(name = "event_id")
     private Event event;
 
+
     private String person;
 
     public Food() {

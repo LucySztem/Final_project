@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "comments")
-public class Comments {
+public class Comment {
 
 
     @Id
@@ -18,7 +18,7 @@ public class Comments {
     @JoinColumn (name ="user_id")
     private User user;
 
-    public Comments() {
+    public Comment() {
     }
 
     public long getId() {

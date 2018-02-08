@@ -20,11 +20,28 @@ public class Event {
     private String date;
     private int people;
 
+
+
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Food> listOfFood = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private List<Drink> listOfDrinks = new ArrayList<>();
+
+
+
+    //   @ManyToOne(cascade = CascadeType.ALL)
+//   @JoinColumn(name="user_id")
+//   private User user;
+//
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public List<Food> getList() {
         return listOfFood;

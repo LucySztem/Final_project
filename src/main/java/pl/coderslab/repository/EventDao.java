@@ -2,10 +2,12 @@ package pl.coderslab.repository;
 
 import org.springframework.stereotype.Component;
 import pl.coderslab.entity.Event;
+import pl.coderslab.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -35,10 +37,20 @@ public class EventDao {
         return em.find(Event.class, id);
     }
 
-    /*dodajc ksiazke bedziemy mieli liste wszytskich Eventow*/
+
     public List<Event> getAll() {
-        Query query = em.createQuery("SELECT e From Event as e");
+        TypedQuery<Event> query = em.createQuery("SELECT e From Event as e", Event.class);
         return query.getResultList();
     }
-    
+
+    public List<Event> getEventsByUserId(long id) {
+        TypedQuery<Event> query = em.createQuery("Select e from Event as e where user_id = :id", Event.class)
+                .setParameter("id", id);
+        return query.getResultList();
+    }
+
+    public void setOwner(User user){
+        long id = user.getId();
+        em.merge(user);
+    }
 }

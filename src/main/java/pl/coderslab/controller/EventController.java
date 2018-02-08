@@ -47,7 +47,9 @@ public class EventController {
 
     @GetMapping("/add")
     private String eventForm(Model model){
+
         model.addAttribute("event", new Event());
+
         return "event/add_event_form";
     }
 
@@ -57,8 +59,8 @@ public class EventController {
         if (principal == null) {
             return "redirect:/user/login";
         } else {
-//            User user = userDao.findById(principal.getUserId());
-//            eventDao.setOwner(user);
+//        User user = userDao.findById(principal.getUserId());
+//           eventDao.setOwner(user);
             eventDao.save(event);
             return "redirect:all";
            // return principal.getUsername() + " " + principal.getUserId();
@@ -113,5 +115,11 @@ public class EventController {
     public String updateEvent(@ModelAttribute Event event){
         eventDao.update(event);
        return "redirect:/event/" + event.getId();
+    }
+
+    @GetMapping("/delete/{eventId}")
+    public String deleteEvent(@PathVariable long eventId){
+        eventDao.delete(eventId);
+        return "redirect:event/all";
     }
 }
