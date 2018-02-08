@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 @Transactional
-public class Comment_Dao {
+public class CommentDao {
 
     @PersistenceContext
     private EntityManager em;
