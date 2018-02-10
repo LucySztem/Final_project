@@ -23,7 +23,6 @@
 <%--@elvariable id="event" type="pl.coderslab.entity.Event"--%>
 <form:form action="/event/add" method = "post" modelAttribute="event" class="form-horizontal">
 
-
         <div class="form-group">
             <label class="control-label col-sm-2" for="description">Type of party:</label>
             <div class="col-sm-4">

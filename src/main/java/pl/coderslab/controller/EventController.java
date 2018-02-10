@@ -5,10 +5,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-
 import pl.coderslab.entity.*;
-
 import pl.coderslab.model.TypeOfDrink;
 import pl.coderslab.model.TypeOfFood;
 import pl.coderslab.repository.DrinkDao;
@@ -36,17 +33,15 @@ public class EventController {
     private UserDao userDao;
 
     @RequestMapping("/test")
-    public String hello(){
+    public String hello() {
         return "{hello: World}";
     }
 
 
-
     @GetMapping("/add")
-    private String eventForm(Model model){
+    private String eventForm(Model model) {
 
         model.addAttribute("event", new Event());
-
         return "event/add_event_form";
     }
 
@@ -55,17 +50,18 @@ public class EventController {
         if (principal == null) {
             return "redirect:/user/login";
         } else {
-        User user = userDao.findById(principal.getUserId());
-           event.setUser(user);
+
+            User user = userDao.findById(principal.getUserId());
+            event.setUser(user);
             eventDao.save(event);
             return "redirect:all";
-           // return principal.getUsername() + " " + principal.getUserId();
+            // return principal.getUsername() + " " + principal.getUserId();
         }
     }
 
 
     @GetMapping("/all")
-    private String showAllEvents(@AuthenticationPrincipal UserPrincipal principal, Model showAll){
+    private String showAllEvents(@AuthenticationPrincipal UserPrincipal principal, Model showAll) {
 
         if (principal == null) {
             return "redirect:/user/login";
@@ -78,7 +74,7 @@ public class EventController {
     }
 
     @GetMapping("/{id}")
-    public String eventView(Model model, @PathVariable long id){
+    public String eventView(Model model, @PathVariable long id) {
         Event eventByID = eventDao.findById(id);
         model.addAttribute("event", eventByID);
 
@@ -91,31 +87,32 @@ public class EventController {
         Food food = new Food();
         food.setEvent(eventByID);
         model.addAttribute("food", food);
-        model.addAttribute("typesOfDrinks", TypeOfFood.values());
+        model.addAttribute("typesOfFood", TypeOfFood.values());
 
         Drink drink = new Drink();
         drink.setEvent(eventByID);
         model.addAttribute("drink", drink);
-        model.addAttribute("typesOfFood", TypeOfDrink.values());
+        model.addAttribute("typesOfDrinks", TypeOfDrink.values());
 
 
         return "show_event";
     }
 
     @GetMapping("/update/{id}")
-    public String updateEventForm(Model model, @PathVariable long id){
+    public String updateEventForm(Model model, @PathVariable long id) {
         Event event = eventDao.findById(id);
         model.addAttribute("event", event);
         return "event/update_event_form";
     }
+
     @PostMapping("/update")
-    public String updateEvent(@ModelAttribute Event event){
+    public String updateEvent(@ModelAttribute Event event) {
         eventDao.update(event);
-       return "redirect:/event/" + event.getId();
+        return "redirect:/event/" + event.getId();
     }
 
     @GetMapping("/delete/{eventId}")
-    public String deleteEvent(@PathVariable long eventId){
+    public String deleteEvent(@PathVariable long eventId) {
         eventDao.delete(eventId);
         return "redirect:/event/all";
     }

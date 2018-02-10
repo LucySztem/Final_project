@@ -26,8 +26,7 @@ public class Event {
     private List<Drink> listOfDrinks = new ArrayList<>();
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
     private User user;
 
     public User getUser() {
