@@ -51,13 +51,12 @@ public class EventController {
     }
 
     @PostMapping("/add")
-
     private String addEvent(@ModelAttribute Event event, @AuthenticationPrincipal UserPrincipal principal) {
         if (principal == null) {
             return "redirect:/user/login";
         } else {
-//        User user = userDao.findById(principal.getUserId());
-//           eventDao.setOwner(user);
+        User user = userDao.findById(principal.getUserId());
+           event.setUser(user);
             eventDao.save(event);
             return "redirect:all";
            // return principal.getUsername() + " " + principal.getUserId();

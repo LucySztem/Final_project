@@ -1,7 +1,5 @@
 package pl.coderslab.entity;
 
-import pl.coderslab.converter.UserConverter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +19,6 @@ public class Event {
     private int people;
 
 
-
-
     @OneToMany(cascade = CascadeType.ALL)
     private List<Food> listOfFood = new ArrayList<>();
 
@@ -30,18 +26,17 @@ public class Event {
     private List<Drink> listOfDrinks = new ArrayList<>();
 
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    //   @ManyToOne(cascade = CascadeType.ALL)
-//   @JoinColumn(name="user_id")
-//   private User user;
-//
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public List<Food> getList() {
         return listOfFood;
