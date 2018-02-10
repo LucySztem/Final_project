@@ -118,6 +118,6 @@ public class EventController {
     @GetMapping("/delete/{eventId}")
     public String deleteEvent(@PathVariable long eventId){
         eventDao.delete(eventId);
-        return "redirect:event/all";
+        return "redirect:/event/all";
     }
 }

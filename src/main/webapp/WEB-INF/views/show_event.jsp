@@ -87,7 +87,7 @@
     </table>
 </div>
 <div id="partyFood">
-    <h2>Food Summary</h2>
+    <h2>Food summary</h2>
     <table class="table table-striped">
         <tr>
             <td>Name</td>
