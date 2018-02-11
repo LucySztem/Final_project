@@ -47,10 +47,10 @@
 
 
 <div id="first">
-    <jsp:include page="food/add_food_form.jsp"/>
+    <jsp:include page="../food/add_food_form.jsp"/>
 </div>
 <div id="second">
-    <jsp:include page="drink/add_drink_form.jsp"/>
+    <jsp:include page="../drink/add_drink_form.jsp"/>
 </div>
 
 <div id="partyDrinks">

@@ -95,7 +95,7 @@ public class EventController {
         model.addAttribute("typesOfDrinks", TypeOfDrink.values());
 
 
-        return "show_event";
+        return "event/show_event";
     }
 
     @GetMapping("/update/{id}")
