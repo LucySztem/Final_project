@@ -6,9 +6,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.entity.Event;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.EventDao;
 import pl.coderslab.repository.UserDao;
 import pl.coderslab.security.UserPrincipal;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -20,6 +24,9 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private EventDao eventDao;
+
     @GetMapping("/add")
     public String sendForm(Model model) {
         model.addAttribute("user", new User());
@@ -27,7 +34,6 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    //@ResponseBody
     public String addNewUser(@ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userDao.save(user);
@@ -53,8 +59,14 @@ public class UserController {
     @GetMapping("/account")
     public String showUserAccount(@AuthenticationPrincipal UserPrincipal principal, Model model) {
 
-        User user = userDao.findById(principal.getUserId());
+        long userId = principal.getUserId();
+
+        User user = userDao.findById(userId );
         model.addAttribute("user", user);
+
+        List<Event> listOfEvents = eventDao.getEventsByUserId(userId);
+        model.addAttribute("list", listOfEvents);
+
         return "user/user_account";
     }
 }

@@ -11,9 +11,23 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>My account</title>
 </head>
 <body>
 <p> ${user.getId()}</p>
+<table>
+    <tr>
+        <td> Parties you have hosted</td>
+        <td> Date</td>
+
+    </tr>
+<c:forEach items="${list}" var="event">
+    <tr>
+        <td>${event.description}</td>
+        <td>${event.date}</td>
+    </tr>
+
+</c:forEach>
+</table>
 </body>
 </html>

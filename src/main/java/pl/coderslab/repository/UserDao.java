@@ -38,8 +38,7 @@ public class UserDao {
         return em.find(User.class, id);
     }
 
-    /*wyciagniecie wsyztskich typow jedzenia
-     * typowanie na User, wiec wie ze zwraca obiet typu User*/
+
     public List<User> getAll() {
         TypedQuery<User> query = em.createQuery("SELECT e From User as e", User.class);
         return query.getResultList();
