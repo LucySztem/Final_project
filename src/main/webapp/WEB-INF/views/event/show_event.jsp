@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<h3 align="center" ><a href="/event/all">Go back</a> || <a href="/event/delete/${event.id}">Delete event</a></h3><br>
+<h3 align="center" ><a href="/event/all">Go back</a></h3><br>
 <table class="table table-striped">
     <thead>
     <tr>

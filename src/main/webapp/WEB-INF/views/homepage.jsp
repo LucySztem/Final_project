@@ -19,7 +19,7 @@
 <body>
 
 <h1>Fiesta!</h1>
-<h2>Welcome </h2>
+<h2 align="center" style="font-size: 50px; font-family: Georgia">Welcome ${user.username}</h2>
 <h3 align="center"><a href="/event/add">Add new party</a></h3>
 <h3 align="center"><a href="/event/all">Show all parties</a></h3>
 <h3 align="center"><a href="/user/account">My account</a></h3>

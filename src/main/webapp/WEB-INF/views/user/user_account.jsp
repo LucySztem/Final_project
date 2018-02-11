@@ -19,7 +19,7 @@
 <body>
 <table class="table table-striped">
     <tr>
-        <td> Parties you have hosted</td>
+        <td> Parties you've hosted</td>
         <td> Date</td>
         <td> Number of people</td>
         <td>More options</td>
@@ -29,7 +29,7 @@
             <td>${event.description}</td>
             <td>${event.date}</td>
             <td>${event.people}</td>
-            <td><a href="/event/${event.id}">Go to the event page</a></td>
+            <td><a href="/event/${event.id}">Go to the event page</a> || <a href="/event/delete/${event.id}">Delete event</a></td>
         </tr>
     </c:forEach>
 </table>
