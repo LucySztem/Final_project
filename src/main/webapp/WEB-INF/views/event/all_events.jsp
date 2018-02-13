@@ -51,7 +51,7 @@
     </c:forEach>
     </tbody>
 </table>
-    <jsp:include page="comments/add_new_comment.jsp"/>
+    <jsp:include page="../comments/add_new_comment.jsp"/>
 
 </div>
 <h3 class="text-center"><a href="/">Go back</a></h3>

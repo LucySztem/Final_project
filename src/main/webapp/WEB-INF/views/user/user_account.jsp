@@ -19,10 +19,10 @@
 <body>
 <table class="table table-striped">
     <tr>
-        <td> Parties you've hosted</td>
-        <td> Date</td>
-        <td> Number of people</td>
-        <td>More options</td>
+        <td align="center"> Parties you've hosted</td>
+        <td align="center"> Date</td>
+        <td align="center"> Number of people</td>
+        <td align="center"> More options</td>
     </tr>
     <c:forEach items="${list}" var="event">
         <tr>

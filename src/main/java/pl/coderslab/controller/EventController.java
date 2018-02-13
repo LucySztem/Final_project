@@ -69,7 +69,7 @@ public class EventController {
             List<Event> listOfEvents = eventDao.getAll();
             showAll.addAttribute("events", listOfEvents);
             showAll.addAttribute("comment", new Comment());
-            return "all_events";
+            return "event/all_events";
         }
     }
 
