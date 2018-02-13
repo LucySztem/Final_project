@@ -25,7 +25,6 @@ public class Drink {
 
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
     private Event event;
 
     public Event getEvent() {

@@ -22,9 +22,8 @@ public class Event {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Food> listOfFood = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Drink> listOfDrinks = new ArrayList<>();
-
 
     @ManyToOne
     private User user;

@@ -31,27 +31,27 @@
 </head>
 <body>
 <div class="container">
-<table class="table table-striped">
-    <thead class="thead thead-dark">
-    <tr>
-        <td>Id</td>
-        <td>What</td>
-        <td>Where</td>
-        <td>When</td>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${events}" var="event">
-        <tr class="table-row" data-href="/event/${event.id}">
-            <td>${event.id}</td>
-            <td>${event.description}</td>
-            <td>${event.place}</td>
-            <td>${event.date}</td>
+    <table class="table table-striped">
+        <thead class="thead thead-dark">
+        <tr>
+            <td>Id</td>
+            <td>What</td>
+            <td>Where</td>
+            <td>When</td>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
-    <jsp:include page="../comments/add_new_comment.jsp"/>
+        </thead>
+        <tbody>
+        <c:forEach items="${events}" var="event">
+            <tr class="table-row" data-href="/event/${event.id}">
+                <td>${event.id}</td>
+                <td>${event.description}</td>
+                <td>${event.place}</td>
+                <td>${event.date}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <jsp:include page="../comment/add_new_comment.jsp"/>
 
 </div>
 <h3 class="text-center"><a href="/home">Go back</a></h3>

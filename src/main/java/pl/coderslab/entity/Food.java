@@ -23,7 +23,6 @@ public class Food {
     private double amount;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
     private Event event;
 
 

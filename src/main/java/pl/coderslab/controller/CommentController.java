@@ -23,7 +23,7 @@ public class CommentController {
     @GetMapping("/comment/add")
     private String showAddForm(Model model){
         model.addAttribute("comment", new Comment());
-        return "comments/add_new_comment";
+        return "comment/add_new_comment";
     }
 
     @PostMapping("/comment/add")
