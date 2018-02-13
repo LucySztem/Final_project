@@ -55,7 +55,6 @@ public class EventController {
             event.setUser(user);
             eventDao.save(event);
             return "redirect:all";
-            // return principal.getUsername() + " " + principal.getUserId();
         }
     }
 
