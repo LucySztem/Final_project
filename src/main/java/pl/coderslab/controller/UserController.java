@@ -5,7 +5,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Event;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.EventDao;
@@ -35,9 +38,10 @@ public class UserController {
 
     @PostMapping("/add")
     public String addNewUser(@ModelAttribute User user) {
+
         user.setPassword(encoder.encode(user.getPassword()));
         userDao.save(user);
-        return "/";
+        return "redirect:/home";
     }
 
     @GetMapping("/login")
@@ -51,7 +55,6 @@ public class UserController {
         if (principal == null) {
             return "redirect:/user/login";
         } else {
-
             return "redirect:/home";
         }
     }
@@ -61,7 +64,7 @@ public class UserController {
 
         long userId = principal.getUserId();
 
-        User user = userDao.findById(userId );
+        User user = userDao.findById(userId);
         model.addAttribute("user", user);
 
         List<Event> listOfEvents = eventDao.getEventsByUserId(userId);

@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<h3 align="center"><a href="/home">Homepage</a></h3>
 </body>
 </html>

@@ -54,7 +54,7 @@
     <jsp:include page="../comments/add_new_comment.jsp"/>
 
 </div>
-<h3 class="text-center"><a href="/">Go back</a></h3>
+<h3 class="text-center"><a href="/home">Go back</a></h3>
 </body>
 
 </html>
