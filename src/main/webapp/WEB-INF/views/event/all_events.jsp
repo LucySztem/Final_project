@@ -26,10 +26,15 @@
         .table-row {
             cursor: pointer;
         }
+        #comment {
+            width: 500px;
+            hight: 200px;
+        }
     </style>
 
 </head>
 <body>
+<h3 class="text-center"><a href="/home">Go back</a></h3><br>
 <div class="container">
     <table class="table table-striped">
         <thead class="thead thead-dark">
@@ -51,10 +56,24 @@
         </c:forEach>
         </tbody>
     </table>
-    <jsp:include page="../comment/add_new_comment.jsp"/>
 
+    <jsp:include page="../comment/add_comment_form.jsp"/>
+    <div id="comment">
+        <table class="table table-striped">
+            <tr>
+                <td>User</td>
+                <td>Content</td>
+            </tr>
+            <c:forEach items="${comments}" var="comment">
+            <tr>
+                <td>${comment.user.getUsername()}</td>
+                <td>${comment.text}</td>
+            </tr>
+            </c:forEach>
+        </table>
+    </div>
 </div>
-<h3 class="text-center"><a href="/home">Go back</a></h3>
+
 </body>
 
 </html>

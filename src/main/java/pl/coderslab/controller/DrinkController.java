@@ -11,7 +11,6 @@ import pl.coderslab.repository.DrinkDao;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/drink")
 public class DrinkController {
 
     @Autowired
@@ -25,12 +24,11 @@ public class DrinkController {
     }
 
     @PostMapping("/drink/add")
-    //@ResponseBody
-    public String addDrink(@ModelAttribute Drink drink){
-
+     public String addDrink(@ModelAttribute Drink drink){
         drinkDao.save(drink);
         return "redirect:/event/" + drink.getEvent().getId();
     }
+
     @GetMapping("/drink/update/{id}")
     public String updateDrinkForm(Model model, @PathVariable long id){
         Drink drink = drinkDao.findById(id);

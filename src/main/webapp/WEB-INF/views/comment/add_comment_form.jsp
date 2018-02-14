@@ -22,7 +22,7 @@
 <%--@elvariable id="comment" type="pl.coderslab.entity.Comment"--%>
 <form:form action="/comment/add" method="post" modelAttribute="comment" >
     <h3>Enter text</h3>
-    <form:textarea path="text" rows="5"/>
+    <form:textarea path="text" rows="5" cols="20"/>
     <input type="submit" value="send">
 </form:form>
 </div>

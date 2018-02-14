@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.*;
 import pl.coderslab.model.TypeOfDrink;
 import pl.coderslab.model.TypeOfFood;
-import pl.coderslab.repository.DrinkDao;
-import pl.coderslab.repository.EventDao;
-import pl.coderslab.repository.FoodDao;
-import pl.coderslab.repository.UserDao;
+import pl.coderslab.repository.*;
 import pl.coderslab.security.UserPrincipal;
 
 import java.util.List;
@@ -31,6 +28,9 @@ public class EventController {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private CommentDao commentDao;
 
     @RequestMapping("/test")
     public String hello() {
@@ -68,6 +68,10 @@ public class EventController {
             List<Event> listOfEvents = eventDao.getAll();
             showAll.addAttribute("events", listOfEvents);
             showAll.addAttribute("comment", new Comment());
+
+            List<Comment> comments = commentDao.getAll();
+            showAll.addAttribute("comments", comments);
+
             return "event/all_events";
         }
     }
