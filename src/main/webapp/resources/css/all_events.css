@@ -1,0 +1,9 @@
+.table-row {
+    cursor: pointer;
+}
+#comment {
+    width: 800px;
+}
+#commentForm {
+    width: 800px;
+}

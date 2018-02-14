@@ -11,26 +11,14 @@
 --%>
 <html>
 <head>
+
     <title>Events</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function ($) {
-            $(".table-row").click(function () {
-                window.document.location = $(this).data("href");
-            });
-        });
-    </script>
-    <style type="text/css">
-        .table-row {
-            cursor: pointer;
-        }
-        #comment {
-            width: 500px;
-            hight: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="/resources/css/all_events.css">
+    <script type="text/javascript" src="/resources/js/all_events.js"></script>
 
 </head>
 <body>
@@ -57,18 +45,21 @@
         </tbody>
     </table>
 
+    <div id="commentForm">
     <jsp:include page="../comment/add_comment_form.jsp"/>
-    <div id="comment">
+    </div>
+
+        <div id="comment">
         <table class="table table-striped">
             <tr>
                 <td>User</td>
                 <td>Content</td>
             </tr>
             <c:forEach items="${comments}" var="comment">
-            <tr>
-                <td>${comment.user.getUsername()}</td>
-                <td>${comment.text}</td>
-            </tr>
+                <tr>
+                    <td>${comment.user.getUsername()}</td>
+                    <td>${comment.text}</td>
+                </tr>
             </c:forEach>
         </table>
     </div>
