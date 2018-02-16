@@ -54,9 +54,21 @@ public class FoodDao {
         return query.getResultList();
     }
 
+    public List<Food> getSnacksByEvent(long id){
+        TypedQuery<Food> query = em.createQuery("SELECT f from Food as f where f.type=:typeOfFood AND f.event.id = :id", Food.class )
+                .setParameter("typeOfFood", TypeOfFood.SNACK).setParameter("id", id);
+        return query.getResultList();
+    }
+
     public List<Food> getHotFood(){
         TypedQuery<Food> query = em.createQuery("Select f from Food as f where f.type=:typeOfFood", Food.class)
                 .setParameter("typeOfFood", TypeOfFood.HOT_FOOD);
+        return query.getResultList();
+    }
+
+    public List<Food> getHotFoodByEventId(long id){
+        TypedQuery<Food> query = em.createQuery("Select f from Food as f where f.type=:typeOfFood AND f.event.id = :id", Food.class)
+                .setParameter("typeOfFood", TypeOfFood.HOT_FOOD).setParameter("id", id);
         return query.getResultList();
     }
    public List<Food> getFoodByEventId(long id){

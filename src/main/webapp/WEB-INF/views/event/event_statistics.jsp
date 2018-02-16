@@ -38,15 +38,13 @@
             <td>Alcohol</td>
             <td>Soft drinks</td>
         </tr>
-        <c:forEach items="${event}" var="event">
         <tr>
             <td>${event.people}</td>
-            <td>${event.food.type.HOT_FOOD}</td>
+            <td>${food.type.HOT_FOOD}</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
-        </c:forEach>
     </table>
 </div>
 </body>

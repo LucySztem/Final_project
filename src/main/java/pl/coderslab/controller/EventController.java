@@ -126,7 +126,14 @@ public class EventController {
         Event event = eventDao.findById(id);
         model.addAttribute("event", event);
 
-        List<Drink> alcohol = drinkDao.getAlcoholDrinks();
+        List<Drink> alcohol = drinkDao.getAlcoholByEvent(id);
+        model.addAttribute("alcohol", alcohol);
+
+        List<Food> snacks = foodDao.getSnacksByEvent(id);
+        model.addAttribute("snacks", snacks);
+
+        List<Food> hotFood = foodDao.getHotFoodByEventId(id);
+        model.addAttribute("hotFood", hotFood);
         return "event/event_statistics";
     }
 }
