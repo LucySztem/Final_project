@@ -27,6 +27,26 @@
             <td><a href="/event/stats/${event.id}">Show stats</a></td>
         </tr>
         </c:forEach>
+    </table>    
+</div>
+<div id="eventBtId">
+    <table class="table table-striped">
+        <tr>
+            <td>People</td>
+            <td>Hot Food</td>
+            <td>Snacks</td>
+            <td>Alcohol</td>
+            <td>Soft drinks</td>
+        </tr>
+        <c:forEach items="${event}" var="event">
+        <tr>
+            <td>${event.people}</td>
+            <td>${event.food.type.HOT_FOOD}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </c:forEach>
     </table>
 </div>
 </body>

@@ -31,6 +31,7 @@
             <td>What</td>
             <td>Where</td>
             <td>When</td>
+            <td>More options</td>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +41,7 @@
                 <td>${event.description}</td>
                 <td>${event.place}</td>
                 <td>${event.date}</td>
+                <td><a href="/event/stats/${event.id}">Show stats</a></td>
             </tr>
         </c:forEach>
         </tbody>

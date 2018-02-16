@@ -119,15 +119,14 @@ public class EventController {
         eventDao.delete(eventId);
         return "redirect:/event/all";
     }
-    @GetMapping("/stats")
-    public String showStats(Model model){
 
-        List<Event> eventsList = eventDao.getAll();
-        model.addAttribute("listOfEvents", eventsList );
+    @GetMapping("/stats/{id}")
+    public String showEventStats(Model model, @PathVariable long id){
+
+        Event event = eventDao.findById(id);
+        model.addAttribute("event", event);
+
+        List<Drink> alcohol = drinkDao.getAlcoholDrinks();
         return "event/event_statistics";
-    }
-    @PostMapping("/stats/{id}")
-    public String showEventStats(){
-        return "";
     }
 }
