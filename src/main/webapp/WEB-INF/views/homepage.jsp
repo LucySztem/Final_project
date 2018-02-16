@@ -23,5 +23,6 @@
 <h3 align="center"><a href="/event/add">Add new party</a></h3>
 <h3 align="center"><a href="/event/all">Show all parties</a></h3>
 <h3 align="center"><a href="/user/account">My account</a></h3>
+<h3 align="center"><a href="/event/stats">Event stats</a></h3>
 </body>
 </html>
