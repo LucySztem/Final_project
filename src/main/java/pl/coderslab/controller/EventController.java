@@ -6,8 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.*;
-import pl.coderslab.model.TypeOfDrink;
-import pl.coderslab.model.TypeOfFood;
+import pl.coderslab.model.*;
 import pl.coderslab.repository.*;
 import pl.coderslab.security.UserPrincipal;
 
@@ -134,6 +133,7 @@ public class EventController {
 
         List<Food> hotFood = foodDao.getHotFoodByEventId(id);
         model.addAttribute("hotFood", hotFood);
+
         return "event/event_statistics";
     }
 }

@@ -13,23 +13,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="listOfEvents">
-    <table class="table table-striped">
-        <tr>
-            <td>Event description</td>
-            <td>Date</td>
-            <td>More options</td>
-        </tr>
-        <c:forEach items="${listOfEvents}" var="event">
-        <tr>
-            <td>${event.description}</td>
-            <td>${event.date}</td>
-            <td><a href="/event/stats/${event.id}">Show stats</a></td>
-        </tr>
-        </c:forEach>
-    </table>    
-</div>
+
 <div id="eventBtId">
+    <c:set var="totalAlcohol" value="${0.0}"/>
+    <c:set var="totalSnacks" value="${0.0}"/>
+    <c:forEach items="${alcohol}" var="alcohol">
+        <c:set var="total" value="${totalAlcohol +alcohol.price}"/>
+    </c:forEach>
+    <c:forEach items="${snacks}" var="snack">
+        <c:set var="total" value="${totalSnacks +snack.price}"/>
+    </c:forEach>
     <table class="table table-striped">
         <tr>
             <td>People</td>
@@ -40,8 +33,8 @@
         </tr>
         <tr>
             <td>${event.people}</td>
-            <td>${food.type.HOT_FOOD}</td>
-            <td></td>
+            <td><c:out value="${totalAlcohol}"/> </td>
+            <td><c:out value="${totalSnacks}"/></td>
             <td></td>
             <td></td>
         </tr>
