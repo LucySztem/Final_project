@@ -128,6 +128,10 @@ public class EventController {
         List<Drink> alcohol = drinkDao.getAlcoholByEvent(id);
         model.addAttribute("alcohol", alcohol);
 
+
+        List<Drink> softDrinks = drinkDao.getSoftDrinksByEvent(id);
+        model.addAttribute("soft", softDrinks);
+
         List<Food> snacks = foodDao.getSnacksByEvent(id);
         model.addAttribute("snacks", snacks);
 

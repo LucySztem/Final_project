@@ -16,12 +16,20 @@
 
 <div id="eventBtId">
     <c:set var="totalAlcohol" value="${0.0}"/>
+    <c:set var="totalSoft" value="${0.0}"/>
     <c:set var="totalSnacks" value="${0.0}"/>
+    <c:set var="totalHot" value="${0.0}"/>
     <c:forEach items="${alcohol}" var="alcohol">
-        <c:set var="total" value="${totalAlcohol +alcohol.price}"/>
+        <c:set var="totalAlcohol" value="${totalAlcohol +alcohol.price}"/>
+    </c:forEach>
+    <c:forEach items="${soft}" var="softDrink">
+        <c:set var="totalSoft" value="${totalSoft +softDrink.price}"/>
     </c:forEach>
     <c:forEach items="${snacks}" var="snack">
-        <c:set var="total" value="${totalSnacks +snack.price}"/>
+        <c:set var="totalSnacks" value="${totalSnacks +snack.price}"/>
+    </c:forEach>
+    <c:forEach items="${hotFood}" var="hotFood">
+        <c:set var="totalHot" value="${totalHot +hotFood.price}"/>
     </c:forEach>
     <table class="table table-striped">
         <tr>
@@ -33,10 +41,10 @@
         </tr>
         <tr>
             <td>${event.people}</td>
-            <td><c:out value="${totalAlcohol}"/> </td>
-            <td><c:out value="${totalSnacks}"/></td>
-            <td></td>
-            <td></td>
+            <td><c:out value="${totalHot} zl"/> </td>
+            <td><c:out value="${totalSnacks} zl"/></td>
+            <td><c:out value="${totalAlcohol} zl "/></td>
+            <td><c:out value="${totalSoft} zl"/></td>
         </tr>
     </table>
 </div>
