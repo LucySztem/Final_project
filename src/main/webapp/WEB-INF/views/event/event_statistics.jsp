@@ -8,12 +8,12 @@
 <head>
     <title>Stats</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <%--<link rel="stylesheet" href="/resources/css/show_event.css">--%>
+    <link rel="stylesheet" href="/resources/css/event_stats.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<h1>Stats for ${event.description}</h1>
 <div id="eventBtId" width ="500px">
     <c:set var="totalAlcohol" value="${0.0}"/>
     <c:set var="totalSoft" value="${0.0}"/>
@@ -48,7 +48,7 @@
         </tr>
     </table>
 </div>
-<br>
+
 <div id="summary">
     <table class="table table-striped">
         <tr>

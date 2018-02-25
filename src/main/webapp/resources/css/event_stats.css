@@ -1,0 +1,29 @@
+#eventBtId {
+    width: 600px;
+    border: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#summary {
+    border: 2px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: #4D1B19;
+    font-family: "Great Vibes", cursive;
+    font-size: 70px;
+    line-height: 160px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+}
+
+body {
+    background-color: #F0DDD1;
+}
