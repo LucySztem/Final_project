@@ -57,11 +57,19 @@
         </tr>
         <tr>
             <td>Hot food</td>
-            <td>${totalHot/event.people}</td>
+            <td>${totalHot/event.people} zl</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td>Snacks</td>
+            <td>${totalSnacks/event.people} zl</td>
+        </tr>
+        <tr>
+            <td>Alcohol</td>
+            <td>${totalAlcohol/event.people} zl</td>
+        </tr>
+        <tr>
+            <td>Soft drinks</td>
+            <td>${totalSoft/event.people} zl</td>
         </tr>
     </table>
 </div>
