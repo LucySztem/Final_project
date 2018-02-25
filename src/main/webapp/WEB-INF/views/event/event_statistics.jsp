@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div id="eventBtId">
+<div id="eventBtId" width ="500px">
     <c:set var="totalAlcohol" value="${0.0}"/>
     <c:set var="totalSoft" value="${0.0}"/>
     <c:set var="totalSnacks" value="${0.0}"/>
@@ -45,6 +45,23 @@
             <td><c:out value="${totalSnacks} zl"/></td>
             <td><c:out value="${totalAlcohol} zl "/></td>
             <td><c:out value="${totalSoft} zl"/></td>
+        </tr>
+    </table>
+</div>
+<br>
+<div id="summary">
+    <table class="table table-striped">
+        <tr>
+            <td>Type</td>
+            <td>Price per person</td>
+        </tr>
+        <tr>
+            <td>Hot food</td>
+            <td>${totalHot/event.people}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 </div>
