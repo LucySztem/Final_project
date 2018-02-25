@@ -48,19 +48,19 @@
     </table>
 
     <div id="commentForm">
-    <jsp:include page="../comment/add_comment_form.jsp"/>
+        <jsp:include page="../comment/add_comment_form.jsp"/>
     </div>
 
-        <div id="comment">
+    <div id="comment">
         <table class="table table-striped">
             <tr>
                 <td>User</td>
-                <td>Content</td>
+                <td align="center">Content</td>
             </tr>
             <c:forEach items="${comments}" var="comment">
                 <tr>
                     <td>${comment.user.getUsername()}</td>
-                    <td>${comment.text}</td>
+                    <td align="center">${comment.text}</td>
                 </tr>
             </c:forEach>
         </table>

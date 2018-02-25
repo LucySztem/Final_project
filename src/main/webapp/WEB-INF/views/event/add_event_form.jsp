@@ -14,15 +14,16 @@
 <head>
     <title>Add Event Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/add_event.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Create new Event</h1>
+
 <div class = "conntainer">
 <%--@elvariable id="event" type="pl.coderslab.entity.Event"--%>
 <form:form action="/event/add" method = "post" modelAttribute="event" class="form-horizontal">
-
+    <h1 align="center">Create new Event</h1>
         <div class="form-group">
             <label class="control-label col-sm-2" for="description">Type of party:</label>
             <div class="col-sm-4">
