@@ -73,5 +73,9 @@
         </tr>
     </table>
 </div>
+<div id="return">
+    <a href="/event/all">Return to all events</a>
+
+</div>
 </body>
 </html>
