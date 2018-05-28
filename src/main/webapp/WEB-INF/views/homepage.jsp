@@ -13,7 +13,8 @@
 <html>
 <head>
     <title>Fiesta!</title>
-    <link rel="stylesheet" href="/resources/css/homepage.css"/>
+   <link rel="stylesheet" href="/resources/css/homepage.css"/>
+
 </head>
 
 <body>
